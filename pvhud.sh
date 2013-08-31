@@ -47,14 +47,9 @@ pv_dlhud() {
 
 # install the HUD
 pv_installhud() {
-	unzip -qo pvhud/HUDfiles.zip && \
+	unzip -qo pvhud/HUDfiles.zip -d custom/ && \
 	printf "Successfully installed PVHUD!\n"
 	printf "${PV_REMOTE_VER}" > pvhud/HUDversion.txt
-}
-
-pv_overwrite_files() {
-        cp pvhud/resource/* resource/ -rf
-        cp pvhud/scripts/* scripts/ -rf
 }
 
 pv_getlocalstatus
@@ -64,7 +59,6 @@ pv_parsehtml
 if [ $PV_LOCAL_VER -lt $PV_REMOTE_VER ]; then
 	pv_dlhud && \
 	pv_installhud && \
-        pv_overwrite_files
 fi
 
 exit 0
