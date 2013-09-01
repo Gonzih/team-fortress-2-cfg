@@ -58,7 +58,7 @@ pv_parsehtml
 
 if [ $PV_LOCAL_VER -lt $PV_REMOTE_VER ]; then
 	pv_dlhud && \
-	pv_installhud && \
+	pv_installhud
 fi
 
 exit 0
